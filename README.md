@@ -1,7 +1,5 @@
 # Quote Generator
 
-Generating a quote from an array using Javascript Objects, for loops, and DOM manipulation.
-
 You'll locate and select your own quotes. Please select tasteful, positive and uncontroversial quotes, for the sake of this project. Thank you.
 
 You'll use your growing knowledge of basic JavaScript syntax, variables, loops, conditionals and object literals to:
