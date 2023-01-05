@@ -48,22 +48,33 @@ const quotes = [
 function getRandomQuote(array) {
 	// 1. Create a variable that generates a random number
 	// between zero and the last index in the `quotes` array
-	let randomNumber = Math.floor(Math.random() * quotes.length);
-	for (i = 0; i < quotes.length; i++) {
-		let randomQuote = array[randomNumber];
-	}
-	return randomQuote;
+  let random = Math.floor(Math.random() * array.length);
+  return array[random];
 }
 
 /***
  * `printQuote` function
  ***/
 function printQuote() {
-	let message = " ";
-	let chosenQuote = getRandomQuote(quotes);
-	message = `<p class='quote'> ${chosenQuote.quote} </p> <p class='source'> ${chosenQuote.source}</p>`;
-
-	document.querySelector("#quote-box").innerHTML = message;
+	let randomQuote = getRandomQuote(quotes);
+  let html = "";
+  html += `
+    <p class="quote">${randomQuote.quote}</p>
+    <p class="source">${randomQuote.source}`;
+  if (randomQuote.citation !== undefined) {
+    html += `
+    <span class="citation">${randomQuote.citation}</span>`;
+  }
+  if (randomQuote.year !== undefined) {
+    html += `
+    <span class="year">${randomQuote.year}, ${randomQuote.tags} Quote</span></p>`;
+  }
+  if (randomQuote.tags !== undefined) {
+    html += `
+    , ${randomQuote.tags} Quote</p>`;
+  }
+  document.getElementById("quote-box").innerHTML = html;
+  return;
 }
 printQuote();
 
